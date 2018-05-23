@@ -29,7 +29,8 @@ disqus_username: taojintianxia
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+# if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true
 
 
 
@@ -53,7 +54,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+# disqus_username: taojintianxia
 
 # Gitalk
 gitalk:
@@ -95,16 +96,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
-    },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
-    },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "开源中国",
+        href: "https://www.oschina.net/"
     }
 ]
