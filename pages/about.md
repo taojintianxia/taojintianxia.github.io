@@ -1,18 +1,14 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 饕尽天下的技术积累
+keywords: taojintianxia, Nianjun Sun
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
-
-仰慕「优雅编码的艺术」。
-
-坚信熟能生巧，努力改变人生。
+记录下平时的技术积累, 仅此而已
 
 ## 联系
 
