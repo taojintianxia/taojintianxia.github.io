@@ -90,7 +90,7 @@ disqus:
 gitment:
     owner: taojintianxia
     # gitment的repo要填写gitment
-    repo: gitment
+    repo: gitment 
     oauth:
         client_id: 906520de6b2f9e7aa8c2
         client_secret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
