@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 图解 SQL 里的各种 JOIN
+title: 图解 SQL 里的各种 JOIN[转]
 categories: Database
 description: 用文氏图和示例来理解 SQL 里的各种 JOIN。
 keywords: SQL, Database, 文氏图

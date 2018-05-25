@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 阅读源码的意义与方法
+title: 阅读源码的意义与方法[转]
 categories: Android
 description: 阅读源码不是唯一的学习方法，但是是很重要的学习方法。
 keywords: Android, 源码, rtfsc
