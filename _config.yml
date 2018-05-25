@@ -97,7 +97,7 @@ gitment:
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: taojintianxia
-    repo: taojintianxia
+    repo: taojintianxia.github.io
     clientID: 906520de6b2f9e7aa8c2
     clientSecret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
 # 在使用其它评论组件时可点击显示 Disqus
