@@ -1,4 +1,6 @@
-## 本Blog的模板fork自[码志](https://mzlogin.github.io) https://mzlogin.github.io
+### 本Blog的模板fork自[码志](https://mzlogin.github.io) https://github.com/mzlogin/mzlogin.github.io
+
+--
 
 ## 概览
 
