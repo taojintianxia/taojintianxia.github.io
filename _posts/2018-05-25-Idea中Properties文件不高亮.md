@@ -1,7 +1,7 @@
 ---
 layout: post  
 title: Idea中.properties文件不高亮  
-categories: [idea]  
+categories: [idea,ide]  
 description: 
 keywords: idea, properties高亮  
 ---
