@@ -84,22 +84,22 @@ comments_provider: gitalk
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
-disqus:
-    username: 
+# disqus:
+#     username: 
 # https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: taojintianxia
-    # gitment的repo要填写gitment
-    repo: taojintianxia.github.io 
-    oauth:
-        client_id: 906520de6b2f9e7aa8c2
-        client_secret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
-# https://github.com/gitalk/gitalk#install
-# gitalk:
+# gitment:
 #     owner: taojintianxia
-#     repo: taojintianxia.github.io
-#     clientID: 906520de6b2f9e7aa8c2
-#     clientSecret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
+#     # gitment的repo要填写gitment
+#     repo: taojintianxia.github.io 
+#     oauth:
+#         client_id: 906520de6b2f9e7aa8c2
+#         client_secret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: taojintianxia
+    repo: taojintianxia.github.io
+    clientID: 906520de6b2f9e7aa8c2
+    clientSecret: 9587c25dceb4ddfb97c8d02043777b5463fdec4f
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
