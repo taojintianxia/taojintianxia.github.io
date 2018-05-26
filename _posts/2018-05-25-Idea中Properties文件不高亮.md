@@ -10,5 +10,5 @@ keywords: idea, properties高亮
 
 #### 在idea的Preferences中搜索"unused", 在inspections中取消勾选Properties Files下的unused properties, 应用即可  
 
-![](https://taojintianxia.github.io/guanggoo-android/screenshots/topic-list.png)
+![](https://taojintianxia.github.io/images/posts/ide/idea/idea_properties_high_light.png)
 
