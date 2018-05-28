@@ -6,7 +6,7 @@ description:
 keywords: idea,  import
 ---
 
-#### idea的默认设置中, 如果import相同包下的文件过多, 会出现import xxx.xxx.xxx.*的情况, 这里记录下如何取消这种设置 :
+#### idea的默认设置中, 如果import相同包下的文件过多, 会出现import xxx.xxx.xxx.* 的情况, 这里记录下如何取消这种设置 :
 #### Idea -> Preferences -> Editor -> Code Style -> Java  
 #### 在右侧的import标签下
 ```
