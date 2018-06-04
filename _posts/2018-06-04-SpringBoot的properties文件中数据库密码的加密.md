@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: template page  
+title: SpringBoot的properties文件中数据库密码的加密  
 categories: [SpringBoot, jasypt, 加密]  
 description: some word here  
 keywords: jasypt, 数据库密码, 加密  
