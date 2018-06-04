@@ -6,7 +6,7 @@ description: some word here
 keywords: jasypt, 数据库密码, 加密  
 ---
 
-#### 目前大部分Spring Boot的项目中对各种资源的连接基本都是明文用户名/密码的, 类似于如下结构 :
+#### 目前大部分Spring Boot的项目中对各种资源的连接基本都是明文的用户名/密码, 类似于如下结构 :
 ```
 #mybatis
 spring.datasource.driverClassName = com.mysql.jdbc.Driver
@@ -26,7 +26,7 @@ spring.datasource.password = root
 </dependency>
 ```
 
-#### 2. 在如下地址下载jasypt的jar包 :
+#### 2. 在如下地址下载jasypt :
 ```
 下载jar版本 : https://mvnrepository.com/artifact/org.jasypt/jasypt/1.9.2
 或下载zip版本 : https://sourceforge.net/projects/jasypt/files/
@@ -39,7 +39,7 @@ java -cp jasypt-1.9.2.jar  org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI inpu
 要注意的是, input才是你的真正的密码,password只不过是盐.(不知道盐的同学去Google一下)
 
 或者下载那个zip包, 按照./encrypt.sh input=YOUR_PASSWORD password=YOUR_SALT algorithm=ALGORITHM的语法生成加密的密码. 方法跟上面jar的就类似了
-最后会生成如下图的结果, OUTPUT就是加密后的密码.
+最后会生成如下图的结果, OUTPUT就是加密后的密码.  
 ![](https://taojintianxia.github.io/images/posts/springboot/jasypt/encript.png)
 
 #### 3. 在配置文件中, 将明文密码替换掉, 并添加jasypt的盐跟算法
