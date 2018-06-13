@@ -28,7 +28,7 @@ spring.datasource.password = root
 
 #### 2. 在如下地址下载jasypt :
 ```
-下载jar版本 : https://mvnrepository.com/artifact/org.jasypt/jasypt/1.9.2
+下载jar版本 : 去maven的repository里找
 或下载zip版本 : https://sourceforge.net/projects/jasypt/files/
 ```
 按照 java -cp jasypt-1.9.2.jar  org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input=YOUR_PASSWORD password=YOUR_SALT algorithm=ALGORITHM 的语法去生成你的密码  
