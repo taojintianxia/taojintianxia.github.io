@@ -12,5 +12,4 @@ keywords: gitmessage, git
 - bug fixes  
 - copy edit  
 - Major refactor of all the stuffs  
-#### 看起来也是让人云里雾里的
-
+#### 看起来也是让人云里雾里的, 接下来推荐一个看起来还不错的git message模板 :
