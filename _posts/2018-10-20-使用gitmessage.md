@@ -12,6 +12,7 @@ keywords: gitmessage, git
 - bug fixes  
 - copy edit  
 - Major refactor of all the stuffs  
+
 #### 看起来也是让人云里雾里的, 接下来推荐一个看起来还不错的git message模板:
 ![](https://taojintianxia.github.io/images/posts/git/git_commit_with_message.png)  
 #### 感觉通过模板, git log的描述看起来更清晰了. 下面就说说如何引入这个模板:  
