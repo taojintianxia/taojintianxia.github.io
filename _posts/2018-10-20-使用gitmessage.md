@@ -31,6 +31,8 @@ git config --global commit.template ~/.git_commit_template.txt
   template = ~/.git_commit_template.txt
 ```
 
+#### 每次在命令行提交的时候, 直接输入git commit就会使用模板.不用再使用git commit -m了.
+
 #### 最后, 如下是一些官方建议的行为:
 ```
 Add = Create a capability e.g. feature, test, dependency.
