@@ -1,7 +1,7 @@
 ---
 layout: post  
-title: K8s基础概念之Container'  
-categories: [k8s, 基础概念]  
+title: K8s基础概念之Container  
+ategories: [k8s, 基础概念]  
 description:   
 keywords: k8s, 基础概念  
 ---
