@@ -21,3 +21,9 @@ docker run -d -v your_jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000
 #### 稍等片刻, docker就会下载并启动Jenkins, 这时候访问http://localhost:8080/, 可以看到如下界面 :  
 
 ![](https://taojintianxia.github.io/images/posts/docker/Docker_jenkins_1.jpg) 
+
+#### 这时候有两种办法读取相关密码 :
+- 1. 通过docker logs CONTAINER的办法, 用docker logs命令查看相关容器, 可以看到密码
+- 2. 直接查看密码文件, 例如: cat your_jenkins_home/secrets/initialAdminPassword查看相关密码
+
+#### 
