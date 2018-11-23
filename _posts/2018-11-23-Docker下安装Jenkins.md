@@ -26,4 +26,9 @@ docker run -d -v your_jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000
 - 1. 通过docker logs CONTAINER的办法, 用docker logs命令查看相关容器, 可以看到密码
 - 2. 直接查看密码文件, 例如: cat your_jenkins_home/secrets/initialAdminPassword查看相关密码
 
-#### 
+#### 通过密码访问后, 我们进入了插件选择界面, 这时候我们选择安装推荐插件 :
+![](https://taojintianxia.github.io/images/posts/docker/Docker_jenkins_2.jpg) 
+
+#### 这时候插件开始安装, 我们要做的就是等待 :
+![](https://taojintianxia.github.io/images/posts/docker/Docker_jenkins_3.jpg) 
+
