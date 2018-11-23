@@ -32,3 +32,6 @@ docker run -d -v your_jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000
 #### 这时候插件开始安装, 我们要做的就是等待 :
 ![](https://taojintianxia.github.io/images/posts/docker/Docker_jenkins_3.jpg) 
 
+#### 剩下的就是一路下一步了, 设置好用户名密码, 我们就看懂了Jenkins的界面了 :
+![](https://taojintianxia.github.io/images/posts/docker/Docker_jenkins_4.jpg) 
+
