@@ -9,6 +9,28 @@ keywords: docker, centos7
 ## 仅此记录一下centos7下docker的安装过程.
 ---
 
+### 首先删除残存的docker
+```
+yum remove docker \
+docker-client \
+docker-client-latest \
+docker-common \
+docker-latest \
+docker-latest-logrotate \
+docker-logrotate \
+docker-selinux \
+docker-engine-selinux \
+docker-engine
+
+sudo rm -rf /var/lib/docker
+
+## 可能还是无法删除, 继续下面的这一步 :
+## 先获取安装列表, 可能是这样的 : 
+## docker-engine.x86_64  17.03.0.ce-1.el7.centos  @dockerrepo
+yum list installed | grep docker
+yum remove -y docker-engine.x86_64
+```
+
 ### 安装相关依赖
 ### 1. 安装依赖包
 ```
@@ -51,4 +73,10 @@ sudo yum install docker-ce-<VERSION STRING>
 sudo systemctl start docker
 ## 启动后可以执行个命令看看是否启动了, 例如 :
 docker images
+```
+
+### 实际上, 上面的安装过程, 可以一句话就搞定 :  
+```
+curl -fsSL https://get.docker.com/ | sh
+sudo systemctl start docker
 ```
