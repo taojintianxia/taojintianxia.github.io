@@ -7,7 +7,6 @@ keywords: docker, centos7
 ---
 
 ## 仅此记录一下centos7下docker的安装过程.
----
 
 ### 首先删除残存的docker
 ```
