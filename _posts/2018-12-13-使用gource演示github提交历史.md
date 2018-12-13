@@ -26,5 +26,17 @@ gource --hide dirnames,filenames --seconds-per-day 0.1 --auto-skip-seconds 1 -12
 
 ### 3. 记录下一些常用的参数吧 :
   - 1. --camera-mode : 镜头模式, 有两个参数
-    - overview
-    - track
+    - overview : 全局查看提交状态
+    - track : 跟踪每一个commiter的提交状态
+  - 2. -s, --seconds-per-day
+    - 模拟速度, 一天在视频里占据几秒.可以设置为0.1
+  - 3. --hide
+    - 在视频中隐藏信息, 可以隐藏时间, 文件名, 目录名等
+  - 4. --start-date "YYYY-MM-DD hh:mm:ss +tz"
+    - 统计项目的开始时间, 格式可以自定义. 同样有--stop-date "YYYY-MM-DD hh:mm:ss +tz"作为结束时间的参数
+  - 5. --logo IMAGE
+    -  设置logo
+  - 6. --date-format FORMAT
+    - 设置时间格式, google一下strftime format的使用方式就知道了.
+
+
