@@ -23,3 +23,8 @@ brew install gource
 ## 进入git项目的根目录, 执行如下命令
 gource --hide dirnames,filenames --seconds-per-day 0.1 --auto-skip-seconds 1 -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
 ```
+
+### 3. 记录下一些常用的参数吧 :
+  - 1. --camera-mode : 镜头模式, 有两个参数
+    - overview
+    - track
