@@ -10,9 +10,9 @@ keywords: MacType, ConEmuC, Windows
 ![](https://taojintianxia.github.io/images/posts/mactype/ConEmu64_AGkkIOdVwE.png)  
 
 #### 按照官方的FAQ设置MacType为独立启动模式并不能解决问题, 只好将ConEmuC添加到exclude list了 :  
-  - 1. 右键任务栏的MacType, 选择打开配置文件 -> 用记事本打开
-  - 2. 找到UnloadDll
-  - 3. 在其下添加相关进程
+  - 1.右键任务栏的MacType, 选择打开配置文件 -> 用记事本打开
+  - 2.找到UnloadDll
+  - 3.在其下添加相关进程
 
 ```
 [UnloadDll]
