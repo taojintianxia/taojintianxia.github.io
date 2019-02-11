@@ -1,8 +1,8 @@
 ---
 layout: post  
-title: MacType提示ConEmuC需要添加到排出列表  
+title: MacType提示ConEmuC需要添加到排除列表  
 categories: [MacType, ConEmuC, Windows]  
-description: MacType提示ConEmuC需要添加到排出列表  
+description: MacType提示ConEmuC需要添加到排除列表  
 keywords: MacType, ConEmuC, Windows  
 ---
 
