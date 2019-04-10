@@ -1,5 +1,5 @@
 ---
-layout: 开启docker daemon服务  
+layout: post  
 title: 开启docker daemon服务  
 categories: [docker, daemon]  
 description: 开启docker daemon服务  

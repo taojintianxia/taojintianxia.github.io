@@ -1,5 +1,5 @@
 ---
-layout: Idea下遇到的Cannot Resolve Symbol XXX  
+layout: post  
 title: Idea下遇到的Cannot Resolve Symbol XXX    
 categories: [idea]  
 description: Idea下遇到的Cannot Resolve Symbol XXX  
