@@ -21,3 +21,5 @@ sharding proxy是我开始接触的第一个模块, 在此之前, 我一直觉�
 如图为sharding proxy的架构图：
 ![](https://taojintianxia.github.io/images/posts/shardingsphere/proxy/sharding-proxy-brief_v2.png)  
 
+### 代码
+bootstrap 是 proxy 的启动入口，

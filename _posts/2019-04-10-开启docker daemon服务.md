@@ -10,7 +10,7 @@ keywords: docker, deamon
 #### 因为最近写了一个自动构建工具, 用到了docker的一些Java API, java通过API调用docker, 是需要有docker daemon服务的, 这里记录一下docker daemon服务的开启方式
 
 ## 开启服务
-#### 1. 安装docker
+### 1. 安装docker
 ```
 ## 切记不能在docker容器中安装docker
 ## 而且官方提供的docker in docker的dind方式也没什么可用性
@@ -18,7 +18,7 @@ keywords: docker, deamon
 yum install docker -y
 ```
 
-#### 2. 创建配置文件
+### 2. 创建配置文件
 在/etc/docker/下创建daemon.json, 内容如下 : (这里默认使用2375这个端口, 可以自己指定) 
 ```json
 
@@ -34,7 +34,15 @@ yum install docker -y
 }
 ```
 
-#### 3. 使服务生效
+### 3. 更新 docker.service配置文件
+```
+vim /lib/systemd/system/docker.service
+## 找到ExecStart=/usr/bin/dockerd -H fd://
+## 将 -H fd://删除
+## 改为ExecStart=/usr/bin/dockerd
+```
+
+### 4. 使服务生效
 ```bash
 systemctl daemon-reload
 systemctl restart docker.service
