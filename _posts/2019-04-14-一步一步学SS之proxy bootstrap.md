@@ -39,7 +39,6 @@ bootstrap 是 sharingsphere 的启动点，这个类里主要做了几件事：
 YamlProxyServerConfiguration serverConfig = loadServerConfiguration(new File(ShardingConfigurationLoader.class.getResource(CONFIG_PATH + SERVER_CONFIG_FILE).getFile()));
 
 ## 加载 server.yaml 后，会通过YamlEngine反序列化yaml文件中的配置到YamlProxyServerConfiguration
-
 ```
 
  - 1.2 加载proxy rule 配置  
@@ -50,6 +49,8 @@ File configPath = new File(ShardingConfigurationLoader.class.getResource(CONFIG_
 
 ## 这里我们可以看到，代码会通过这个正则，扫描配置目录里所有以config-开头的yaml文件
 Pattern RULE_CONFIG_FILE_PATTERN = Pattern.compile("config-.+\\.yaml");
+
+## 每一个 rule 都会被反序列化为YamlProxyRuleConfiguration
 ```
 
 #### 2. 
