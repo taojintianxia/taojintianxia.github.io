@@ -23,3 +23,21 @@ sharding proxy是我开始接触的第一个模块, 在此之前, 我一直觉�
 
 ### 代码
 bootstrap 是 proxy 的启动入口，先从这里的代码读起
+
+### Bootstrap
+bootstrap 是 sharingsphere 的启动点，这个类里主要做了几件事：  
+1. 加载配置  
+2. 启动 register center(本地或远程)  
+3. 启动 netty
+
+#### 1. 加载配置
+```
+## 这里我们看一下ShardingConfigurationLoader的 load() 方法
+## 第一步加载 server 的相关信息（server.yaml）
+YamlProxyServerConfiguration serverConfig = loadServerConfiguration(new File(ShardingConfigurationLoader.class.getResource(CONFIG_PATH + SERVER_CONFIG_FILE).getFile()));
+
+## 加载 server.yaml 后，会通过YamlEngine反序列化yaml文件中的配置到YamlProxyServerConfiguration
+
+```
+
+
