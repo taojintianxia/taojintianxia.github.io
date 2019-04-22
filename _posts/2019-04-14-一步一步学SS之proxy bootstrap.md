@@ -31,6 +31,8 @@ bootstrap 是 sharingsphere 的启动点，这个类里主要做了几件事：
 3. 启动 netty
 
 #### 1. 加载配置
+ - 1.1 加载server配置  
+
 ```
 ## 这里我们看一下ShardingConfigurationLoader的 load() 方法
 ## 第一步加载 server 的相关信息（server.yaml）
@@ -40,4 +42,14 @@ YamlProxyServerConfiguration serverConfig = loadServerConfiguration(new File(Sha
 
 ```
 
+ - 1.2 加载proxy rule 配置  
 
+```
+## 加载 rule 的配置，默认在项目的resources/conf目录里
+File configPath = new File(ShardingConfigurationLoader.class.getResource(CONFIG_PATH).getFile());
+
+## 这里我们可以看到，代码会通过这个正则，扫描配置目录里所有以config-开头的yaml文件
+Pattern RULE_CONFIG_FILE_PATTERN = Pattern.compile("config-.+\\.yaml");
+```
+
+#### 2. 
