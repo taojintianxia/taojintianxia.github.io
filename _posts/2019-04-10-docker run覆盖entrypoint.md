@@ -21,6 +21,6 @@ docker exec -it abc bash
 ## 先记录下entrypoint
 docker inspect xxx/xxximage
 ## 覆盖掉默认entrypoint
-docker run --entrypoin "" --rm -it xxx/xxximage bash
+docker run --entrypoint "" --rm -it xxx/xxximage bash
 ## 这时候就进入容器了, 可以试着执行entrypoint看看有什么效果
 ```
