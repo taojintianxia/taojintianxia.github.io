@@ -50,7 +50,63 @@ File configPath = new File(ShardingConfigurationLoader.class.getResource(CONFIG_
 ## 这里我们可以看到，代码会通过这个正则，扫描配置目录里所有以config-开头的yaml文件
 Pattern RULE_CONFIG_FILE_PATTERN = Pattern.compile("config-.+\\.yaml");
 
-## 每一个 rule 都会被反序列化为YamlProxyRuleConfiguration
+## 每一个 rule 都会被反序列化为YamlProxyRuleConfiguration，可以是 master-slave 的配置，也可以是 sharding 的配置。
+ File configPath = new File(ShardingConfigurationLoader.class.getResource(CONFIG_PATH).getFile());
+        Collection<YamlProxyRuleConfiguration> ruleConfigurations = new LinkedList<>();
+        for (File each : findRuleConfigurationFiles(configPath)) {....}
+        
+## 不过这里我有些诟病的是，loadRuleConfiguration(final File yamlFile, final YamlProxyServerConfiguration serverConfiguration)这个方法
+## 传入的serverConfiguration参数，仅仅是为了校验，显得不够优雅
+
+## 每读取一个配置文件，都会进行 checkstate 的检查，有问题会立刻报错
 ```
 
-#### 2. 
+#### 2. 接下来会根据读取到的配置，分成两种启动方式 ：  
+ - 2.1 没有 注册中心 的启动方式
+ - 2.2 通过 zk 等注册中心读取相关配置的启动方式
+
+没有注册中心的启动方式 :  
+
+```
+## 1. 初始化ShardingProxyContext
+ShardingProxyContext.getInstance().init(authentication, prop);
+
+## 这里对ShardingProxyContext.getInstance的初始化包括读取数据库的用户名/密码，相关 properties(主要是数据库的一些配置).
+## 同样，读取配置后，还是会进行一系列的校验
+
+## 2. 初始化 logic schema
+## 首先会根据数据库连接获取数据库类型，但是这里需要小吐槽下，这段代码可读性也不太好
+schemaDataSources.values().iterator().next().values().iterator().next().getUrl()
+## 还有一点，就是final boolean isUsingRegistry这样的变量，其实不需要 is 的前缀的
+
+## 3. 初始化 opentracing
+## 具体代码没有细跟，只是看到了LOGGER.log(Level.FINE, "Attempted to register the GlobalTracer as delegate of itself.");
+## 而且 apm 类的东西也不是 ss 的重点，有时间了解下即可
+
+## 4. 启动 ShardingProxy
+这里根据配置文件中定义好的端口启动了一个 netty server
+
+```
+
+有注册中心的启动方式：  
+
+```
+## 1. 有注册中心的代码就明显不一样了，看起来骚气很多啊（这里我甚至怀疑，有注册中心跟没注册中心的代码，不是出自一个人）
+## 代码一开始，就用了 try with resources, Facade patten.
+try (ShardingOrchestrationFacade shardingOrchestrationFacade = new ShardingOrchestrationFacade(
+                new OrchestrationConfigurationYamlSwapper().swap(serverConfig.getOrchestration()), shardingSchemaNames))
+                
+## 但是说实话，这里的这个 Facade，看起来并不是一个 facade 模式，swap 用的也稍显牵强。这的代码虽然风格华美一些，但是并没有前面代码的那种朴实实用感。此处怀疑作者是不是第二人格发作了, 笑              
+
+## 值得一提的是，RegistryCenter的 load 方法，还是有些水平的。
+## 我本以为配置文件中定义好针对不同的注册中心的配置，然后启动的时候加载即可。没想到，这里是通过 SPI 的方式去处理注册中心的
+## 配置文件中，只保存serverLists: localhost:2181，namespace: orchestration。这类抽象的配置，注册中心是个抽象的接口，使用 SPI 去加载，加载哪种注册中心就启动哪种注册中心。
+## 如果加载的过程中发现有多个 SPI 的实现，那就默认取最后一个找到的 SPI 实现
+             
+## 剩下的代码就跟没有注册中心一样了
+## 2. 同样初始化 ShardingProxyContext
+## 3. 同样初始化LogicSchemas
+## 4. 同样初始化OpenTracing
+## 5. ShardingProxy启动 netty server 
+```
+#### 至此 bootstrap 的代码就结束了，我们可以看到，bootstrap 的代码主要是加载、检查配置并启动 proxy。
