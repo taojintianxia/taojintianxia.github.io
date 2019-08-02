@@ -172,3 +172,39 @@ Master_SSL_Verify_Server_Cert: No
 
 ## 这里切记 Slave_IO_Running 跟 Slave_SQL_Running 都是 YES 才是正确的结果
 ```
+
+##### 5. 测试一下
+到目前为止，配置就结束了，我们可以在 master 上创建个测试表测试一下
+
+进入 master 的 mysql, 执行如下 sql：
+
+```
+## 创建 schema
+create schema test_schema;
+user test_schema;
+
+## 创建测试表
+CREATE TABLE country (
+  country_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  country VARCHAR(50) NOT NULL,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (country_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+## 创建测试数据
+insert into country values (1, 1, now());
+```
+
+进入 slave 的 mysql，查询一下相关数据
+
+```
+mysql> select * from country;
++------------+---------+---------------------+
+| country_id | country | last_update         |
++------------+---------+---------------------+
+|          1 | 1       | 2019-08-02 08:55:20 |
++------------+---------+---------------------+
+1 row in set (0.01 sec)
+```
+
+到此，一个粗略的基于 docker 的 mysql replication 就结束了。稍后，我会根据目前的环境，进行一部分优化
