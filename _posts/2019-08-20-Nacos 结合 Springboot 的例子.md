@@ -8,6 +8,7 @@ keywords: nacos, springboot
 
 官方的各种 example 其实已经很清晰了，但是例子中用到了@NacosValue 标签，感觉还是有一定的侵入性，所以就根据文档的另一种方法记录了下使用 springboot 跟 spring cloud 中自带标签的方法。
 
+### 静态配置
 首先记录下静态配置的设置方式：  
 
 1. 在 resources 目录下新建application.properties，内容如下：  
@@ -130,3 +131,7 @@ classroom:
 ```
 
 保存完毕后，我们通过http://localhost:8080/school/getSchool 是可以访问到相应的配置的
+
+### 动态配置
+
+接下来我们讲一讲如何
