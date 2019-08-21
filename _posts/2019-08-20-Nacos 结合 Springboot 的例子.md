@@ -111,11 +111,12 @@ public class SchoolController {
 ```
 
 到目前为止，已经万事俱备了，就差一个配置了。我们在本地启动一个 nacos 的 docker，具体教程搜一下官方网站。然后我们在 nacos 中添加数据 ： 
+![](https://taojintianxia.github.io/images/posts/nacos/nacos-new-config.jpg)
 
-Data ID : school
-Group: dev
-配置类型 : yaml
-配置内容 : 
+Data ID : school  
+Group: dev  
+配置类型 : yaml  
+配置内容 :   
 
 ```
 # 学校的配置
@@ -130,7 +131,10 @@ classroom:
   legacy: false
 ```
 
-保存完毕后，我们通过http://localhost:8080/school/getSchool 是可以访问到相应的配置的
+保存完毕后，我们通过http://localhost:8080/school/getSchool 是可以访问到相应的配置的  
+
+![](https://taojintianxia.github.io/images/posts/nacos/nacos-school.png)
+
 
 ### 动态配置
 
