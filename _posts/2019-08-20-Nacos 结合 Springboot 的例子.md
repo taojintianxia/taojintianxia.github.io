@@ -181,3 +181,8 @@ school:
     }
 ```
 
+启动浏览器访问 http://localhost:8080/school/getDynamicSchool , 我们就可以看到 DynamicSchoolConfig 的信息了
+
+![](https://taojintianxia.github.io/images/posts/nacos/nacos-dynamic-school.png)
+
+这时候我们修改下 nacos 中的dynamic-school-dev.yaml数据，刷新http://localhost:8080/school/getDynamicSchool ，就可以看到配置实时的更改
