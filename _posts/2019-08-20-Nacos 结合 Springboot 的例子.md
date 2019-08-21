@@ -11,7 +11,7 @@ keywords: nacos, springboot
 ### 静态配置
 首先记录下静态配置的设置方式：  
 
-1. 在 resources 目录下新建application.properties，内容如下：  
+##### 1. 在 resources 目录下新建application.properties，内容如下：  
 
 ```
 # 开启预加载，必须
@@ -36,7 +36,7 @@ nacos.config.config-long-poll-timeout=45000
 nacos.config.enable-remote-sync-config=false
 ```
 
-2.让我们新建两个配置类如下：  
+##### 2. 让我们新建两个配置类如下：  
 
 ```java
 @Data
@@ -82,7 +82,7 @@ public class SchoolConfig {
 }
 ```
 
-3.新建个 controller 如下：  
+##### 3. 新建个 controller 如下：  
 
 ```java
 @Controller
@@ -138,4 +138,46 @@ classroom:
 
 ### 动态配置
 
-接下来我们讲一讲如何
+接下来我们记录一下如何设置使得配置内容动态更新
+
+##### 1. 在 resources 下新建文件 bootstrap.properties，内容如下：  
+
+```
+spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+spring.application.name=dynamic-school
+spring.profiles.active=dev
+spring.cloud.nacos.config.file-extension=yaml
+```
+
+##### 2. 创建data-id，这里要注意的是，data-id 名字的格式为：  
+${prefix}-${spring.profile.active}.${file-extension}
+
+官方文档的定定义是 ：
+
+  - prefix 默认为 spring.application.name 的值，也可以通过配置项
+  - spring.cloud.nacos.config.prefix来配置。
+  - spring.profile.active 即为当前环境对应的 profile，详情可以参考 Spring Boot文档。 注意：当 spring.profile.active 为空时，对应的连接符 - 也将不存在，dataId 的拼接格式变成 ${prefix}.${file-extension}
+
+也就是说，data-id 的名字是通过配置中的几个字段组合出来的，group 就选择 DEFAULT
+_GROUP，例子中的 data-id 名字就应该是dynamic-school-dev.yaml
+
+内容如下 ： 
+
+```
+school:
+  principal: KKK
+  location: HK
+```
+
+![](https://taojintianxia.github.io/images/posts/nacos/nacos-dynamic-config.png)
+
+我们再添加个 controller：  
+
+```java
+@ResponseBody
+    @RequestMapping(value = "/getDynamicSchool", method = GET)
+    public String getDynamicSchool() {
+        return "学校校长 : " + dynamicSchoolConfig.getPrincipal() + " \n 学校地址 : " + dynamicSchoolConfig.getLocation();
+    }
+```
+
