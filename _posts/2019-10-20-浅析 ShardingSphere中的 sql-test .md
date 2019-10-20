@@ -68,9 +68,10 @@ integrate 下的 engine 目录下包含了测试代码的入口，以 sharding �
 
 断言是根据 SQL 的类型进行分配的。每次Junit 的@Parameters 将sqlCaseId，databaseType，sqlCaseType组成一组数据，调用 assertSupportedSQL 方法。该方法首先会根据参数获取到sql case 中我们事先定义好要去解析的 SQL 语句，然后将该语句交给 SQL 解析引擎（SQLParseEngine）去处理，并返回 SQLStatement 。接下来，断言引擎（ShardingSQLStatementAssert）会根据分析返回的SQLStatement
 
-有了这个断言引擎，我们无需编写任何 Java 代码，只需要在两个地方定义好相关的数据：  
-    - 1. 在 sql-case 中填写 一个id，以及我们要断言的 SQL 语句
-    - 2. 在 parser-result 中填写期待的解析数据
+有了这个断言引擎，我们无需编写任何 Java 代码，只需要在两个地方定义好相关的数据 :
+
+  - 1. 在 sql-case 中填写 一个id，以及我们要断言的 SQL 语句
+  - 2. 在 parser-result 中填写期待的解析数据
 
 不过目前来说，断言引擎中的 if 太多，接下来我会看看有限状态机的效率，不排除会在不影响效率的情况下，提交有限状态机的重构 PR。
 
