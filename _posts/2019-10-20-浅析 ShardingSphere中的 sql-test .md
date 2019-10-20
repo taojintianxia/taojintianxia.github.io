@@ -64,4 +64,14 @@ xml 文件的格式如下 :
 ```
 这里 parser-result 有一个跟 sql-case 中相同的 id，下面不同的模型，即为针对 SQL 解析后的不同断言，例如针对 table ，table token，condition 的断言等等。xml 中的这些模型，对应的 java entity 就是 integrate 下面的 jaxb 目录下的相应文件。
 
-integrate 下的 engine 目录下包含了测试代码的入口，以 sharding 为例，ShardingParameterizedParsingTest 会引用 SQLCasesLoader 加载所有的 SQL，然后引用 ParserResultSetRegistry 加载所有 xml 中的断言内容，然后通过 junit 的 [Parameterized]()
+integrate 下的 engine 目录下包含了测试代码的入口，以 sharding 为例，ShardingParameterizedParsingTest 会引用 SQLCasesLoader 加载所有的 SQL，然后引用 ParserResultSetRegistry 加载所有 xml 中的断言内容，然后通过 junit 的 [Parameterized](https://github.com/junit-team/junit4/wiki/parameterized-tests)方式，将所有的参数，批量执行，最大化的减少因测试数据不同的重复用例。
+
+断言是根据 SQL 的类型进行分配的。每次Junit 的@Parameters 将sqlCaseId，databaseType，sqlCaseType组成一组数据，调用 assertSupportedSQL 方法。该方法首先会根据参数获取到sql case 中我们事先定义好要去解析的 SQL 语句，然后将该语句交给 SQL 解析引擎（SQLParseEngine）去处理，并返回 SQLStatement 。接下来，断言引擎（ShardingSQLStatementAssert）会根据分析返回的SQLStatement
+
+有了这个断言引擎，我们无需编写任何 Java 代码，只需要在两个地方定义好相关的数据：  
+    - 1. 在 sql-case 中填写 一个id，以及我们要断言的 SQL 语句
+    - 2. 在 parser-result 中填写期待的解析数据
+
+不过目前来说，断言引擎中的 if 太多，接下来我会看看有限状态机的效率，不排除会在不影响效率的情况下，提交有限状态机的重构 PR。
+
+ss 中的 SQL 解析本质上的稍微复杂的，对初学者并不太友好，但是有了断言引擎，我们可以根据解析后的 statement 中的数据进行合理断言，排除掉解析的复杂性，以至于初学用户也完全可以在不了解解析引擎的情况下编写断言数据。
