@@ -12,3 +12,12 @@ sharding-sql-test 是一个新抽取出的模块，主要用于 SQL 解析后的
 ### 加载
 sql-test 模块下，有一个 SQLCasesLoader 类，该类会按照根据指定的参数，加载 resources 下对应目录中的 xml 文件。
 
+xml 文件的格式如下 : 
+
+```xml
+<sql-cases db-types="MySQL">
+    <sql-case id="delete_with_sharding_value" value="DELETE FROM t_order WHERE order_id = ? AND user_id = ? AND status=?" />
+    <sql-case id="delete_without_sharding_value" value="DELETE FROM t_order WHERE status=?" />
+</sql-cases>
+```
+
