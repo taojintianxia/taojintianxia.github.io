@@ -80,6 +80,12 @@ object[4] = {DatabaseTypeEnvironment}
 object[5] = {SQLCaseType@2831} "Literal"
 ```
 
-加载了这些数据后，执行断言的具体测试类，会一层一层的调用自己父类的构造函数，直到调用所有集成测试类的父类 BaseIT 。 BaseIT 的构造函数会根据 env.properties 中的环境变量，创建相应的 DataSourceMap，接下来，系统会在 resources/integrate/env/sharding-type/sharding-rule.yaml 中获取所需的 sharding 规则，并以此创建 DataSource。
+加载了这些数据后，执行断言的具体测试类，会一层一层的调用自己父类的构造函数，直到调用所有集成测试类的父类 BaseIT 的构造函数。
+
+然而，在这个调用的过程中，dcl，dml，dql 的 @BeforeClass 进行了建库建表的行为，ddl 仅仅是创建了数据库。建库表的原信息来自于 resources/integrate/env/相应的SQL类型/schema.xml，schema.xml 中定义了测试需要创建的库表信息。
+
+在此之后，系统调用了 BaseIT的构造函数。BaseIT 的构造函数会根据 env.properties 中的环境变量，创建相应的 DataSourceMap，接下来，系统会在 resources/integrate/env/sharding-type/sharding-rule.yaml 中获取所需的 sharding 规则，并以此创建 DataSource。
+
+到目前为止，一切数据都已经准备好了，只等待着断言方法的执行。
 
 
