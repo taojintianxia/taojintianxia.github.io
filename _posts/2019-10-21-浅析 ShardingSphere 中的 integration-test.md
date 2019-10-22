@@ -1,14 +1,14 @@
 ---
 layout: post  
 title: 浅析 ShardingSphere 中的 integration-test.  
-categories: [ss, test]  
+categories: [shardingsphere, test]  
 description: 浅析 ShardingSphere 中的 integration-test.  
-keywords: ss, test    
+keywords: shardingsphere, test    
 ---
 
 ### 简介
 
-前面我们简单的了解了一下 ss 中的 sql-test 模块，今天我们来熟悉一下 integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，可以有针对性的对dcl，dml，dql 等 SQL 类型，在不同的数据库下，执行分表，分库，主从等等的集成测试，而不像前面的 sql-test，仅仅针对某个功能点进行单独的测试了。integrate-test 代码量比较大，结构也相对复杂一些，阅读起来需要有耐心。
+前面我们简单的了解了一下 shardingsphere 中的 sql-test 模块，今天我们来熟悉一下 integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，可以有针对性的对dcl，dml，dql 等 SQL 类型，在不同的数据库下，执行分表，分库，主从等等的集成测试，而不像前面的 sql-test，仅仅针对某个功能点进行单独的测试了。integrate-test 代码量比较大，结构也相对复杂一些，阅读起来需要有耐心。
 
 ### 配置文件
 
@@ -57,7 +57,7 @@ oracle.password=jdbc
   
   - 1.SQL Case : 之前提及过的，在sharding-sql-test模块下中，resources/sql 目录下的相应 xml 文件。这些 xml 文件中包含的都是 SQL 语句，可以用于很多类型的测试，这也是为什么将这个模块单独提炼出来的原因。
   - 2.Integration Test Case : 集成测试用到的数据整合文件。具体在项目中的位置就是 integration-test模块下, resources/intgrate/cases 中以 "-integrate-test-cases.xml" 结尾的文件。
-  - 3.Expected Data File : 针对不同测试用例的期待数据是不同的，我们在前两个文件中定义了 SQL 语句，参数，但是我们需要针对具体的 sharding 算法进行相应的数据验证，master-slave rule 下的 sharding 数据肯定跟 tbl sharding 的断言数据不一样。具体在 ss 中对应的位置为 resources/intgrate/cases 下对应的sharding rule 目录下的 xml 文件，该文件的名字要跟 integrate-test-cases.xml 中描述的 expected-data-file 文件名相同。
+  - 3.Expected Data File : 针对不同测试用例的期待数据是不同的，我们在前两个文件中定义了 SQL 语句，参数，但是我们需要针对具体的 sharding 算法进行相应的数据验证，master-slave rule 下的 sharding 数据肯定跟 tbl sharding 的断言数据不一样。具体在 shardingsphere 中对应的位置为 resources/intgrate/cases 下对应的sharding rule 目录下的 xml 文件，该文件的名字要跟 integrate-test-cases.xml 中描述的 expected-data-file 文件名相同。
 
 ### 数据加载
 integration-test 中还是用到了 junit 的 Parameterized，所以根据 @Parameters 进行查找，就可以找到测试相应的启动参数了。我们可以看到，Parameterized 启动的时候会加载 SQL CASE 信息以及 Integrate test 的信息。并将这两部分信息进行组合，包装为一个 Collection<Object[]> 数据，我们可以看一看这个 object 都包含了哪些数据 : 
