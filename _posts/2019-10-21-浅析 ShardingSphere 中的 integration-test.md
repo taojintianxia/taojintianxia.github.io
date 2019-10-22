@@ -55,9 +55,9 @@ oracle.password=jdbc
 ### 数据准备
 集成测试相对于 sql 断言的测试，要更复杂一些，这里我们需要先准备以下几类数据，用于接下来的测试 :  
   
-  - 1. SQL Case : 之前提及过的，在sharding-sql-test模块下中，resources/sql 目录下的相应 xml 文件。这些 xml 文件中包含的都是 SQL 语句，可以用于很多类型的测试，这也是为什么将这个模块单独提炼出来的原因。
-  - 2. Integration Test Case : 集成测试用到的数据整合文件。具体在项目中的位置就是 integration-test模块下, resources/intgrate/cases 中以 "-integrate-test-cases.xml" 结尾的文件。
-  - 3. Expected Data File : 针对不同测试用例的期待数据是不同的，我们在前两个文件中定义了 SQL 语句，参数，但是我们需要针对具体的 sharding 算法进行相应的数据验证，master-slave rule 下的 sharding 数据肯定跟 tbl sharding 的断言数据不一样。具体在 ss 中对应的位置为 resources/intgrate/cases 下对应的sharding rule 目录下的 xml 文件，该文件的名字要跟 integrate-test-cases.xml 中描述的 expected-data-file 文件名相同。
+  - 1.SQL Case : 之前提及过的，在sharding-sql-test模块下中，resources/sql 目录下的相应 xml 文件。这些 xml 文件中包含的都是 SQL 语句，可以用于很多类型的测试，这也是为什么将这个模块单独提炼出来的原因。
+  - 2.Integration Test Case : 集成测试用到的数据整合文件。具体在项目中的位置就是 integration-test模块下, resources/intgrate/cases 中以 "-integrate-test-cases.xml" 结尾的文件。
+  - 3.Expected Data File : 针对不同测试用例的期待数据是不同的，我们在前两个文件中定义了 SQL 语句，参数，但是我们需要针对具体的 sharding 算法进行相应的数据验证，master-slave rule 下的 sharding 数据肯定跟 tbl sharding 的断言数据不一样。具体在 ss 中对应的位置为 resources/intgrate/cases 下对应的sharding rule 目录下的 xml 文件，该文件的名字要跟 integrate-test-cases.xml 中描述的 expected-data-file 文件名相同。
 
 ### 数据加载
 integration-test 中还是用到了 junit 的 Parameterized，所以根据 @Parameters 进行查找，就可以找到测试相应的启动参数了。我们可以看到，Parameterized 启动的时候会加载 SQL CASE 信息以及 Integrate test 的信息。并将这两部分信息进行组合，包装为一个 Collection<Object[]> 数据，我们可以看一看这个 object 都包含了哪些数据 : 
