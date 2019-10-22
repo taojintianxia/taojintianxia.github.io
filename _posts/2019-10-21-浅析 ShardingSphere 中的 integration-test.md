@@ -8,7 +8,7 @@ keywords: ss, test
 
 ### 简介
 
-前面我们简单的了解了一下 ss 中的 sql-test 模块，今天我们看看 integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，可以有针对性的对dcl，dml，dql 等 SQL 在不同的数据库下，执行分表，分库，主从等等的集成测试，而不像前面说的 sql-test，仅仅针对某个功能点进行单独的测试了。
+前面我们简单的了解了一下 ss 中的 sql-test 模块，今天我们来熟悉一下 integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，可以有针对性的对dcl，dml，dql 等 SQL 类型，在不同的数据库下，执行分表，分库，主从等等的集成测试，而不像前面的 sql-test，仅仅针对某个功能点进行单独的测试了。integrate-test 代码量比较大，结构也相对复杂一些，阅读起来需要有耐心。
 
 ### 配置文件
 
@@ -49,6 +49,8 @@ oracle.port=1521
 oracle.username=jdbc
 oracle.password=jdbc
 ```
+
+通过以上的配置，我们可以看到，要测试的数据库类型为 MySQL，相关的用户名密码以及host 都已经配置好，要测试的 sharding 类型为分库，分表，分库分表主从，主从
 
 ### 数据准备
 集成测试相对于 sql 断言的测试，要更复杂一些，这里我们需要先准备以下几类数据，用于接下来的测试 :  
