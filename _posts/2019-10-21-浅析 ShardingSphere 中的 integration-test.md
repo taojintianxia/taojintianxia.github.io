@@ -12,9 +12,10 @@ keywords: ss, test
 
 ### 配置文件
 
-不同于其他断言，集成测试需要一个真实的测试环境，我们需要在 resource/integrate 下的env.properties 中进行配置 :
+不同于其他断言，集成测试需要一个真实的测试环境(我们可以安装相应的数据库，不过更推荐 docker 的方式)，我们需要在 resource/integrate 下的env.properties 中进行配置 :
 
 ```
+# 针对特殊情况测试的开关
 run.additional.cases=false
 
 # sharding 的策略，可以指定多种策略
