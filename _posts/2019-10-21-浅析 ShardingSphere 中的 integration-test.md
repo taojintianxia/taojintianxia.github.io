@@ -49,3 +49,10 @@ oracle.port=1521
 oracle.username=jdbc
 oracle.password=jdbc
 ```
+
+### 数据准备
+集成测试相对于 sql 断言的测试，要更复杂一些，这里我们需要先准备以下几类数据，用于接下来的测试 :  
+  
+  - 1. SQL Case : 之前提及过的，在sharding-sql-test模块下中，resources/sql 目录下的相应 xml 文件。这些 xml 文件中包含的都是 SQL 语句，可以用于很多类型的测试，这也是为什么将这个模块单独提炼出来的原因。
+  - 2. Integration Test Case : 集成测试用到的数据整合文件。具体在项目中的位置就是 integration-test模块下, resources/intgrate/cases 中以 "-integrate-test-cases.xml" 结尾的文件。
+  - 3. 
