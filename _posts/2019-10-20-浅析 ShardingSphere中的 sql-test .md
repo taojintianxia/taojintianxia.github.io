@@ -1,20 +1,25 @@
 ---
 layout: post  
 title: 浅析 ShardingSphere中的 sql-test  
-categories: [ss, test]  
+categories: [shardingsphere, test, sql-test]  
 description: 浅析 ShardingSphere中的 sql-test  
-keywords: ss, test  
+keywords: shardingsphere, test, sql-test  
 ---
 
 ### 简介
-sharding sphere 为了保证代码质量，提供了完善的测试引擎。引擎使用 xml 数据驱动，可以针对 H2，MySQL，Oracle，PostgreSQL 进行相应的测试。
+shardingsphere 为了保证代码质量，提供了完善的测试引擎。引擎使用 xml 数据驱动，可以针对 H2，MySQL，Oracle，PostgreSQL 进行相应的测试。
+
 
 sharding-sql-test 是一个新抽取出的模块，主要用于 SQL 解析后的断言验证。在 sharding sphere 中，sql 解析是个比较复杂的部分，在非常谨慎的情况下做的任何修改，也无法保证解析后的正确性，针对解析的断言，是质量保证的门槛。这里我们简单介绍下针对 SQL 解析的断言的处理方式。
 
-### 加载
-sql-test 模块下，有一个 SQLCasesLoader 类，该类会按照根据指定的参数，递归加载 resources 下对应目录中的 xml 文件。这个类是 sql-test 模块的核心功能，所有的数据加载，都是这个类完成的。
+### 1. 配置文件
+sql-test 引擎在启动后，会加载事先写好的 xml 形式的配置文件，将所有需要进行测试的 sql 以 Map<String, SQLCase> 的格式读取到内存中，所有的 xml 文件，都保存在resources/sql 下面
 
-我们举个例子，需要编写的 xml 文件的格式如下 : 
+sql-test 模块下有一个 loader 目录，其中保存了不同类型数据的 Registry。这些 registry 会有针对性的加载不同类型的 SQL 。这个类是 sql-test 模块的核心功能，所有的数据加载，都是这个类完成的。
+
+![](https://taojintianxia.github.io/images/posts/shardingsphere/test/sql-test/sharding-sql-case-registry.jpg)
+
+我们举个例子，如果要针对删除进行断言，我们需要些的 sql 可能是下面这个样子 : 
 
 ```xml
 <sql-cases db-types="MySQL">
@@ -35,7 +40,7 @@ sql-test 模块下，有一个 SQLCasesLoader 类，该类会按照根据指定�
 这时，所有我们想要进行解析的 SQL 就在这里填写完毕了。
 
 ### 断言
-前面我们已经以 xml 的格式填写了我们期待进行解析的 SQL，SQLCasesLoader 也会将其加载至内存中，这时候我们来编写需要断言的相关数据。我们可以到sharding-core-parse模块下的sharding-core-parse-test模块看一看。
+上面我们已经以 xml 的格式填写了我们期待进行解析的 SQL，SQLCasesLoader 也会将其加载至内存中，这时候我们来编写需要断言的相关数据。我们可以到sharding-core-parse模块下的sharding-core-parse-test模块看一看。
 
 节选一段 resources 下的 xml 文件内容如下 : 
 
