@@ -7,7 +7,9 @@ keywords: ss, test
 ---
 
 ### 简介
-sharding-sql-test 是一个新抽取出的模块，主要用于 SQL 解析后的断言验证。在ss 中，sql 解析是个比较复杂的部分，在非常谨慎的情况下做的任何修改，也无法保证解析后的正确性，针对解析的断言，是质量保证的门槛。这里我们简单介绍下针对 SQL 解析的断言的处理方式。
+sharding sphere 为了保证代码质量，提供了完善的测试引擎。引擎使用 xml 数据驱动，可以针对 H2，MySQL，Oracle，PostgreSQL 进行相应的测试。
+
+sharding-sql-test 是一个新抽取出的模块，主要用于 SQL 解析后的断言验证。在 sharding sphere 中，sql 解析是个比较复杂的部分，在非常谨慎的情况下做的任何修改，也无法保证解析后的正确性，针对解析的断言，是质量保证的门槛。这里我们简单介绍下针对 SQL 解析的断言的处理方式。
 
 ### 加载
 sql-test 模块下，有一个 SQLCasesLoader 类，该类会按照根据指定的参数，递归加载 resources 下对应目录中的 xml 文件。这个类是 sql-test 模块的核心功能，所有的数据加载，都是这个类完成的。
