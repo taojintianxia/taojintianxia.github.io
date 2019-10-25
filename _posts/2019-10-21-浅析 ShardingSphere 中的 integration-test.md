@@ -7,9 +7,9 @@ keywords: shardingsphere, test
 ---
 
 ### 简介
-前面提到了，ShardingSphere 为了针对各个数据库的测试，开发了测试引擎。今天我们就来聊一聊其中的集成测试引擎。
+前文提到过，ShardingSphere 为了针对不同数据库，不同的 sharding 类型的测试，开发了一套测试引擎。今天我们就来聊一聊其中的集成测试引擎。
 
-该引擎位于 sharding-integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，可以分为两个维护的测试 : 
+该引擎位于 sharding-integration-test 模块。integration-test 知名见意，就是集成测试引擎，在这个引擎中，主要分为两个维度的测试 : 
 
   - sharding 策略的测试 : 分库分表、仅分表、仅分库、读写分离等策略
   - JDBC 维度的测试 : 针对 Statement、PreparedStatement 的测试
@@ -18,7 +18,7 @@ integrate-test 代码量明显比前面提到的 sql-test 多很多，结构也�
 
 ### 配置文件
 
-不同于其他断言，集成测试需要一个真实的测试环境(我们可以安装相应的数据库，不过更推荐 docker 的方式)，我们需要在 resource/integrate 下的env.properties 中进行配置 :
+不同于 sql 解析引擎的测试，集成测试需要一个真实的测试环境(我们可以安装相应的数据库，不过更推荐 docker 的方式)，我们需要在 resource/integrate 下的env.properties 中进行配置 :
 
 ```
 # 测试主键，并发，column index 等的开关
