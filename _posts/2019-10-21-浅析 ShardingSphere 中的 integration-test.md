@@ -96,7 +96,7 @@ object[5] = {SQLCaseType@2831} "Literal"
 
 到目前为止，一切数据都已经准备好了，只等待着断言方法的执行。
 
-![](https://taojintianxia.github.io/images/posts/shardingsphere/test/integration-test/integration-test.jpg)
+![](https://taojintianxia.github.io/images/posts/shardingsphere/test/integration-test/integration-test-2.jpg)
 
 让我们再回到之前那个集成测试类 GeneralDMLIT， 我们看看这个类的断言接下来会做什么。鉴于前面准备了好多好多的各种数据，我们目前一定会获取到如下数据 : 
 
