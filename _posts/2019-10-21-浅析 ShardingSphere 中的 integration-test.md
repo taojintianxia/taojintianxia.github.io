@@ -18,6 +18,19 @@ integrate-test 代码量明显比前面提到的 sql-test 多很多，结构也�
 
 ### 配置文件
 
+为了能让测试变得更容易上手，integration-test 引擎无需修改任何 Java 代码，只需要配置好以下四种配置文件，就可以跑起来所有的断言了：
+
+  - 环境类文件
+    - integrate/env.properties
+    - integrate/env/sql-type/dataset.xml
+    - integrate/env/sql-type/schema.xml
+  - 测试用例类文件
+    - integrate/cases/sql-type/sql-type-integrate-test-cases.xml
+    - integrate/cases/sql-type/dataset/*.xml
+  - sql-case 文件(在 sharding-sql-test 模块下)
+  	- sql/sharding/sql-type/*.xml
+
+
 不同于 sql 解析引擎的测试，集成测试需要一个真实的测试环境(我们可以安装相应的数据库，不过更推荐 docker 的方式)，我们需要在 resource/integrate 下的env.properties 中进行配置 :
 
 ```
