@@ -1,3 +1,20 @@
+# maven ignore
+target/
+
+# hugo ignore
+public/
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
 # temp ignore
 logs/
 *.doc
@@ -10,3 +27,6 @@ logs/
 # system ignore
 .DS_Store
 Thumbs.db
+
+*.class
+*.html-e
