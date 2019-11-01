@@ -18,7 +18,7 @@ sql-test 模块下有一个 loader 目录，其中保存了不同类型数据的
 
 ![](https://taojintianxia.github.io/images/posts/shardingsphere/test/sql-test/sharding-sql-case-registry.jpg)
 
-我们举个例子，如果要针对删除进行断言，我们需要些的 sql 可能是下面这个样子 : 
+我们举个例子，如果要针对删除进行断言，我们需要的 sql 可能是下面这个样子 : 
 
 ```xml
 <sql-cases db-types="MySQL">
