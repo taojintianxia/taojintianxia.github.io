@@ -20,7 +20,7 @@ rewrite 的测试用例位于 `sharding-core/sharding-core-rewrite` 下的 test 
   - 环境配置
   - 验证数据
 
-测试引擎就是 rewrite 测试的入口，跟其他引擎有一样，都用到到了 Junit 的 `Parameterized` 标签，引擎会将 `test\resources`目录中测试类型下对应的 xml 文件读取，然后按读取顺序一一进行验证。
+测试引擎就是 rewrite 测试的入口，跟其他引擎有一样，都用到到了 Junit 的 `Parameterized` annotation，引擎会将 `test\resources`目录中测试类型下对应的 xml 文件读取，然后按读取顺序一一进行验证。
 
 环境配置存放在 `test\resources\yaml` 路径中测试类型下对应的 yaml 中。配置了dataSources，shardingRule，encryptRule 等信息，默认使用的是 H2 内存数据库
 
