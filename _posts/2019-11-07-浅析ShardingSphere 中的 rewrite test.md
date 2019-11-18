@@ -10,11 +10,11 @@ keywords: shardingsphere, rewrite, test
 
 前面我们分别简单了解了一下 ShardingSphere 中的 sql parse 以及 integration test，今天我们看看 rewrite 的 test
 
-面向逻辑库与逻辑表书写的SQL，并不能够直接在真实的数据库中执行，SQL改写用于将逻辑SQL改写为在真实数据库中可以正确执行的SQL。 它包括正确性改写和优化改写两部分。接下来我们就基于这些点，去看看 rewrite 的测试吧
+面向逻辑库与逻辑表书写的SQL，并不能够直接在真实的数据库中执行，SQL改写用于将逻辑SQL改写为在真实数据库中可以正确执行的SQL。 它包括正确性改写和优化改写两部分，所以 rewrite 的测试都是基于这些改写方向进行校验的。
 
 ### 测试
 
-rewrite 的测试用例在 `sharding-core/sharding-core-rewrite` 的 test中。rewrite 的测试主要依赖如下几个部分：
+rewrite 的测试用例位于 `sharding-core/sharding-core-rewrite` 下的 test 中。rewrite 的测试主要依赖如下几个部分配置：
 
   - 测试引擎
   - 环境配置
