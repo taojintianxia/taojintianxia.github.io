@@ -41,4 +41,10 @@ sharding scaling 主要是解决两个问题的 :
  2. 校验增量同步数据并没有提及触发了阈值，持久化后如何通过 zk 通知用户。
  3. 目前停止原始库是通过手动的方式，不科学。
  4. 设置只读后的请求，是抛弃了还是堆积，如果抛弃了，怕是用户体验不会太好。
+
+这里我按照自己的假象，画了一张我理解的 scaling 可能的结构图
+
+ ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/new-architecture.png) 
+ 
+
  
