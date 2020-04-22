@@ -12,4 +12,17 @@ keywords: shardingsphere, sharding-scaling
 
 ## 背景
 
-谈及 sharding scaling，应该先了解一下 [shardingsphere](https://github.com/apache/shardingsphere) .
+谈及 sharding scaling，应该先了解一下 [shardingsphere](https://github.com/apache/shardingsphere) . 
+
+sharding scaling 主要是解决两个问题的 : 
+
+  - 旧库迁移：有些单表过亿，或者数据大小超过 1Tb 的数据库，急需迁移并使用 shardingsphere。sharding scaling 可以将旧库迁移到分片后的多个新数据库中
+  - 重新分片：由于业务升级很快超出负荷或者某些原因，原有的分片需要进行重新分片，这也是 sharding scaling 支持的范围
+
+ 架构图
+ 
+ 如下为官方提供的 4.0.1 版本的架构图 ：
+ 
+ ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/scaling-overview.cn.png) 
+ 
+ 
