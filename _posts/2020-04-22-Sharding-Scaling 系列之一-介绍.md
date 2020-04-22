@@ -12,7 +12,7 @@ keywords: shardingsphere, sharding-scaling
 
 ## 背景
 
-谈及 sharding scaling，应该先了解一下 [shardingsphere](https://github.com/apache/shardingsphere) . 
+谈及 sharding scaling，应该先了解一下 [shardingsphere](https://github.com/apache/shardingsphere) 。这是一套数据分片（也就是分库分表）的生态环境。
 
 sharding scaling 主要是解决两个问题的 : 
 
@@ -25,7 +25,7 @@ sharding scaling 主要是解决两个问题的 :
  
  ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/scaling-overview.cn.png) 
  
- 通过这份架构图，我们可以看出 scaling 的几个步骤 ：
+通过这份架构图，我们可以看出 scaling 的几个步骤 ：
  
  1. 用户修改 shardingsphere 的配置
  2. 修改配置的请求发送到 shardingscaling，scaling 创建两个 job
@@ -35,5 +35,10 @@ sharding scaling 主要是解决两个问题的 :
  4. 用户从某个地方看到 zk 上的消息，在 ui 界面上手动暂停正在同步数据的数据库。
  5. 增量任务将后续新进的数据分片掉后，修改 zk 上保存的用户配置，以达到切换 shardingsphere 配置的目的。
 
+然而通过这份图，我们也同样能看到 sharding scaling 不成熟的几个点：
  
+ 1. 数据迁移并没有依赖外部的作业中间件，且不是分布式的，这样可能会造成单点问题以及吞吐量不足
+ 2. 校验增量同步数据并没有提及触发了阈值，持久化后如何通过 zk 通知用户。
+ 3. 目前停止原始库是通过手动的方式，不科学。
+ 4. 设置只读后的请求，是抛弃了还是堆积，如果抛弃了，怕是用户体验不会太好。
  
