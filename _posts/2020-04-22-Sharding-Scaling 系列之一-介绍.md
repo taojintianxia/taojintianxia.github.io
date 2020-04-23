@@ -42,7 +42,7 @@ sharding scaling 主要是解决两个问题的 :
  3. 目前停止原始库是通过手动的方式，不科学。
  4. 设置只读后的请求，是抛弃了还是堆积，如果抛弃了，怕是用户体验不会太好。
 
-这里我按照自己的假象，画了一张我理解的 scaling 可能的结构图
+这里在原图的基础之上，按照自己的假想，画了一张我期待的 scaling 的结构图
 
  ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/new-architecture.png) 
  
