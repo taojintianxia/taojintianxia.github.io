@@ -46,5 +46,26 @@ sharding scaling 主要是解决两个问题的 :
 
  ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/new-architecture.png) 
  
+## 问题
 
+没有想好数据库 `只读` 后向数据库发送的请求应该怎么处理，也想过如果有可能，提供 Hikari 的一个扩展，把只读后的数据库请求缓存起来，等切换了数据源后，再发送这些请求。但是这样做收效很低，反而导致风险很大。后续还需要考虑，毕竟切成只读后的几秒到几十秒会导致用户体验变差。
  
+在一个就是 `断点续传`。在迁移数据的过程中，不可能永远顺顺利利，中途出现问题是必须要考虑的。出了问题后，要在恢复的过程中续传后续数据，否则就需要清空新分片中的所有数据重新传送，这也是非常糟糕的。
+
+最后一点就是目前迁移时候的语句，是一条数据一条 insert SQL，这样可能会导致跟 proxy 的通讯增加。是否可以积累一定数据后统一发给 proxy，以 insert Batch 的形式插入数据也是个值得探究的点。
+
+## 现状
+
+目前的 sharding scaling 只是个 Alpha 版本，提供了基础的使用方法，后续需要增强的地方还有很多。
+
+如下图就是目前官网提供的 RoadMap :
+
+ ![](https://taojintianxia.github.io/images/posts/shardingsphere/scaling/original-roadmap.cn.png) 
+
+通过这张图，我们可以看到 sharding scaling 后续的里程碑是要支持断点续传甚至自动扩缩容的。这就非常让人期待了。
+
+## 总结
+
+sharding scaling 作为 shardingsphere 生态网络中的新的一环，可以将单库进行分片，对需要重新分片的数据库集群进行扩缩容，是数据迁移过程中非常重要的一部分。
+
+而且目前 shardingsphere 的其他模块已经相对成熟，想要加入社区为社区贡献力量，不妨先从 sharding scaling 上手，可参与的程度会更高。
