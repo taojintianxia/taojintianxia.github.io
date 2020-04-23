@@ -1,12 +1,12 @@
 ---
 layout: post  
 title: Sharding-Scaling 系列之一 介绍  
-categories: [shardingsphere, sharding-scaling]  
+categories: [shardingsphere, sharding-scaling, 介绍]  
 description: Sharding-Scaling 系列之一 介绍  
-keywords: shardingsphere, sharding-scaling  
+keywords: shardingsphere, sharding-scaling, 介绍
 ---
 
-# Sharding Scaling 介绍
+# Sharding Scaling 之 介绍
 
 本系列是一组记录自己学习 `sharding scaling` 的文章。通过源码阅读的方式，尝试深入了解 `sharding scaling`。不会仅仅简单的摘抄官方文档，力求在学习的过程中得出属于自的理解。
 
