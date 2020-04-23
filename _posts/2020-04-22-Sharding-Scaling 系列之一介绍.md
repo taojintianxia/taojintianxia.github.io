@@ -72,3 +72,5 @@ sharding scaling 主要是解决两个问题的 :
 sharding scaling 作为 shardingsphere 生态网络中的新的一环，可以将单库进行分片，对需要重新分片的数据库集群进行扩缩容，是数据迁移过程中非常重要的一部分。
 
 而且目前 shardingsphere 的其他模块已经相对成熟，想要加入社区为社区贡献力量，不妨先从 sharding scaling 上手，可参与的程度会更高。
+
+相信在一定程度的打磨后，sharding scaling 甚至可以独立成一个单独的项目，提供给其他开源的分库分表项目使用。就像我相信将来 SQL 解析这块也会提炼成独立的引擎。
