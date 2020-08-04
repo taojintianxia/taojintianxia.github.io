@@ -19,3 +19,10 @@ Editor -> Code Style -> Java -> Keep indents in empty line
 
  ![](https://taojintianxia.github.io/images/posts/shardingsphere/idea/keep-indents-in-empty-line.png) 
 
+### 2. 去掉 idea 保存时自动去除空格的限制
+
+虽然前面已经让每个空行以四个空格为开头，但是保存的时候，idea 是会默认清除掉这个四个空格的。需要进行一下设置 :
+
+Editor -> General -> Strip trailing space on save
+
+ ![](https://taojintianxia.github.io/images/posts/shardingsphere/idea/strip-trailing.jpg) 
