@@ -8,6 +8,8 @@ keywords: maven, failsafe
 
 ## Maven 的 Failsafe 插件（草稿）
 
+### 简介
+
 Failsafe 是一个用于运行集成测试的 maven 插件，起这么个名字是因为 failsafe 是 surefire 的同义词，同时也意味着当执行失败的时候，会以一种安全的方式退出
 
 该插件主要有 4 个阶段用来执行集成测试：
@@ -31,4 +33,14 @@ mvn verify
 
 Failsafe 插件会生成两种类型的报告：txt 跟 xml
 
-默认情况下，报告会生成到 `${basedir}/target/failsafe-reports/TEST-*.xml` 
+默认情况下，报告会生成到 `${basedir}/target/failsafe-reports/TEST-*.xml` ，概要报告会生成到 `${basedir}/target/failsafe-reports/failsafe-summary.xml`
+
+如果想生成 html 格式的报告，就需要 [Maven Surefire Report Plugin](http://maven.apache.org/surefire/maven-surefire-report-plugin/) 这个插件
+
+### Goal
+
+Failsafe 插件有两个 goal 配置：
+
+  - `failsafe:integration-test` 运行应用的集成测试
+  - `failsafe:verify` 检验应用的集成测试是否通过
+
