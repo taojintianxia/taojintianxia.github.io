@@ -10,7 +10,7 @@ keywords: git, git pull, github, 加速
 
 1.替换下载项目的域名
 
-将 `github.com` 替换为 `github.com.cnpmjs.org`
+将 `github.com` 替换为 `github.com.cnpmjs.org` (或 `hub.fastgit.org`)
 
 ```
 # 例如我们通过 github 克隆 shardingsphere
