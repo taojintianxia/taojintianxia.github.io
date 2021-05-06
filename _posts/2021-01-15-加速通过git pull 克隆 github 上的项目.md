@@ -35,3 +35,5 @@ git remote set-url origin https://github.com/apache/shardingsphere.git
 # origin	https://github.com/apache/shardingsphere.git (fetch)
 # origin	https://github.com/apache/shardingsphere.git (push)
 ```
+
+这时候再通过 `git pull` 来更新下最新代码即可
