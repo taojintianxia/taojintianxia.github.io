@@ -18,6 +18,7 @@ mkdir -p /var/tmp/opengauss
 cd /var/tmp/opengauss
 wget https://opengauss.obs.cn-south-1.myhuaweicloud.com/2.0.1/x86/openGauss-2.0.1-CentOS-64bit-all.tar.gz
 tar -zxvf openGauss-2.0.1-CentOS-64bit-all.tar.gz
+chmod 755 var/tmp/opengauss
 ```
 
 来到 OpenGauss 的 [配置文件模板页面](https://opengauss.org/zh/docs/2.0.1/docs/installation/创建XML配置文件.html)，这里我们按需复制 `单节点配置文件` 并修改为如下：
@@ -77,4 +78,8 @@ tar -zxvf openGauss-2.0.1-CentOS-64bit-all.tar.gz
     - 将模板中所有的 `192.168.0.1` 都替换为主机 ip
   - 设置 datanode 安装路径
     - 将模板中的 `/opt/huawei/install/data/dn` 替换为我们自定义的安装地址，例如 `/opt/opengauss/install/data/dn"/`
+
+将该 xml 模板内容保存到一个文件中，例如 /opt/opengauss/install_config.xml
+
+## 安装 OpenGauss
 
