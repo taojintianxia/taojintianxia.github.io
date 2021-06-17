@@ -18,7 +18,7 @@ mkdir -p /var/tmp/opengauss
 cd /var/tmp/opengauss
 wget https://opengauss.obs.cn-south-1.myhuaweicloud.com/2.0.1/x86/openGauss-2.0.1-CentOS-64bit-all.tar.gz
 tar -zxvf openGauss-2.0.1-CentOS-64bit-all.tar.gz
-chmod 755 var/tmp/opengauss
+chmod 755 /var/tmp/opengauss
 ```
 
 来到 OpenGauss 的 [配置文件模板页面](https://opengauss.org/zh/docs/2.0.1/docs/installation/创建XML配置文件.html)，这里我们按需复制 `单节点配置文件` 并修改为如下：
@@ -94,8 +94,8 @@ passwd NEW_USER_NAME
 接下来我们为安装文件赋予权限
 
 ```
-chown -R spereEx:spereEx /var/tmp/opengauss
-chrown -R spereEx:spereEx /opt/opengauss
+chown -R sphereEx:sphereEx /var/tmp/opengauss
+chown -R sphereEx:sphereEx /opt/opengauss
 ```
 
 进入解压的 OpenGauss 下的 script 目录，执行如下命令：
@@ -104,7 +104,7 @@ chrown -R spereEx:spereEx /opt/opengauss
 # -U 指定用户名 -G 指定用户组
 # -X 指定的就是之前创建的 xml 模板
 # --sep-env-file 需要指定一个配置文件的位置，OpenGauss 会在安装过程中向其写入一些环境变量
-./gs_preinstall -U spereEx -G spereEx -X /opt/opengauss/install_config.xml --sep-env-file=/opt/opengauss/ENV
+./gs_preinstall -U sphereEx -G sphereEx -X /opt/opengauss/install_config.xml --sep-env-file=/opt/opengauss/ENV
 ```
 
 切换到新建的用户，刷新环境变量：
