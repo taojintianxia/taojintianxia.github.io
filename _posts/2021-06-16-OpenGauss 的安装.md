@@ -25,7 +25,7 @@ chmod 755 /var/tmp/opengauss
 安装 OpenGauss 依赖的一些组件：
 
 ```
-yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-lsb-core readline-devel
+yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-lsb-core readline-devel pyhon3
 ```
 
 来到 OpenGauss 的 [配置文件模板页面](https://opengauss.org/zh/docs/2.0.1/docs/installation/创建XML配置文件.html)，这里我们按需复制 `单节点配置文件` 并修改为如下：
