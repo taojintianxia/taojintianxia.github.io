@@ -83,3 +83,43 @@ chmod 755 var/tmp/opengauss
 
 ## 安装 OpenGauss
 
+OpenGauss 不允许使用 root 用户控制，需要创建一个新的用户：
+
+```
+# 这里我们创建了个用户 sphereEx
+adduser NEW_USER_NAME
+passwd NEW_USER_NAME
+```
+
+接下来我们为安装文件赋予权限
+
+```
+chown -R spereEx:spereEx /var/tmp/opengauss
+chrown -R spereEx:spereEx /opt/opengauss
+```
+
+进入解压的 OpenGauss 下的 script 目录，执行如下命令：
+
+```
+# -U 指定用户名 -G 指定用户组
+# -X 指定的就是之前创建的 xml 模板
+# --sep-env-file 需要指定一个配置文件的位置，OpenGauss 会在安装过程中向其写入一些环境变量
+./gs_preinstall -U spereEx -G spereEx -X /opt/opengauss/install_config.xml --sep-env-file=/opt/opengauss/ENV
+```
+
+切换到新建的用户，刷新环境变量：
+
+```
+su - spehreEx
+source /opt/opengauss/ENV
+```
+
+进入 OpenGauss 的解压目录，开始安装 OpenGauss：
+
+```
+gs_install -X /opt/opengauss/install_config.xml 
+```
+
+安装完成后，可以通过 `gsql -d postgres -p 15400 -r` 访问 OpenGauss 了。（ xml 配置文件中 dataPortBase设置为 15400）
+
+
