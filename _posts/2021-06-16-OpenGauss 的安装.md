@@ -18,7 +18,14 @@ mkdir -p /var/tmp/opengauss
 cd /var/tmp/opengauss
 wget https://opengauss.obs.cn-south-1.myhuaweicloud.com/2.0.1/x86/openGauss-2.0.1-CentOS-64bit-all.tar.gz
 tar -zxvf openGauss-2.0.1-CentOS-64bit-all.tar.gz
+tar -zxvf openGauss-2.0.1-CentOS-64bit-om.tar.gz
+tar -jxvf openGauss-2.0.1-CentOS-64bit.tar.bz2
 chmod 755 /var/tmp/opengauss
+```
+安装 OpenGauss 依赖的一些组件：
+
+```
+yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-lsb-core readline-devel
 ```
 
 来到 OpenGauss 的 [配置文件模板页面](https://opengauss.org/zh/docs/2.0.1/docs/installation/创建XML配置文件.html)，这里我们按需复制 `单节点配置文件` 并修改为如下：
@@ -104,13 +111,14 @@ chown -R sphereEx:sphereEx /opt/opengauss
 # -U 指定用户名 -G 指定用户组
 # -X 指定的就是之前创建的 xml 模板
 # --sep-env-file 需要指定一个配置文件的位置，OpenGauss 会在安装过程中向其写入一些环境变量
+# 如果提示 /usr/bin/env: python3: 没有那个文件或目录，就先安装 Python3 (yum install -y python3)
 ./gs_preinstall -U sphereEx -G sphereEx -X /opt/opengauss/install_config.xml --sep-env-file=/opt/opengauss/ENV
 ```
 
 切换到新建的用户，刷新环境变量：
 
 ```
-su - spehreEx
+su - sphereEx
 source /opt/opengauss/ENV
 ```
 
