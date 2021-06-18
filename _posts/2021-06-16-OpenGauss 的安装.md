@@ -15,6 +15,7 @@ OpenGauss 是华为基于 PGSQL 打造的开源数据库，本文将介绍如何
 
 ```
 mkdir -p /var/tmp/opengauss
+mkdir -p /opt/opengauss
 cd /var/tmp/opengauss
 wget https://opengauss.obs.cn-south-1.myhuaweicloud.com/2.0.1/x86/openGauss-2.0.1-CentOS-64bit-all.tar.gz
 tar -zxvf openGauss-2.0.1-CentOS-64bit-all.tar.gz
@@ -25,7 +26,7 @@ chmod 755 /var/tmp/opengauss
 安装 OpenGauss 依赖的一些组件：
 
 ```
-yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-lsb-core readline-devel pyhon3
+yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-lsb-core readline-devel python3
 ```
 
 来到 OpenGauss 的 [配置文件模板页面](https://opengauss.org/zh/docs/2.0.1/docs/installation/创建XML配置文件.html)，这里我们按需复制 `单节点配置文件` 并修改为如下：
@@ -50,7 +51,7 @@ yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-ls
         <!-- 数据库core文件目录-->
         <PARAM name="corePath" value="/opt/opengauss/corefile" />
         <!-- 节点IP，与数据库节点名称列表一一对应 -->
-        <PARAM name="backIp1s" value="10.12.3.28"/> 
+        <PARAM name="backIp1s" value="10.0.0.100"/> 
     </CLUSTER>
     <!-- 每台服务器上的节点部署信息 -->
     <DEVICELIST>
@@ -62,8 +63,8 @@ yum install -y libaio-devel flex bison ncurses-devel glibc-devel patch redhat-ls
             <PARAM name="azName" value="AZ1"/>
             <PARAM name="azPriority" value="1"/>
             <!-- 节点1的IP，如果服务器只有一个网卡可用，将backIP1和sshIP1配置成同一个IP -->
-            <PARAM name="backIp1" value="10.12.3.28"/>
-            <PARAM name="sshIp1" value="10.12.3.28"/>
+            <PARAM name="backIp1" value="10.0.0.100"/>
+            <PARAM name="sshIp1" value="10.0.0.100"/>
                
 	    <!--dbnode-->
 	    <PARAM name="dataNum" value="1"/>
