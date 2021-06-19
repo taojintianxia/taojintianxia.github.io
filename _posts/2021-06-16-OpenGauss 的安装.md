@@ -123,7 +123,7 @@ su - sphereEx
 source /opt/opengauss/ENV
 ```
 
-进入 OpenGauss 的解压目录，开始安装 OpenGauss：
+进入 OpenGauss 的解压目录 `/var/tmp/opengauss`，开始安装 OpenGauss：
 
 ```
 gs_install -X /opt/opengauss/install_config.xml 
