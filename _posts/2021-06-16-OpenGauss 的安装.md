@@ -131,5 +131,15 @@ gs_install -X /opt/opengauss/install_config.xml
 
 安装完成后，可以通过 `gsql -d postgres -p 15400 -r` 访问 OpenGauss 了。（ xml 配置文件中 dataPortBase设置为 15400）
 
+pg 的相关配置都在 `/opt/opengauss/install/data/dn/postgresql.conf` 文件中，具体修改项可以看官方文档。
+
+> 修改白名单，允许远程连接
+
+添加如下配置到 `pg_hba.conf`
+
+```
+host    all             all             0.0.0.0/0               sha256
+```
+
 
 
