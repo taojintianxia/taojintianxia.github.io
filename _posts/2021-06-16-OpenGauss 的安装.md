@@ -141,6 +141,14 @@ pg 的相关配置都在 `/opt/opengauss/install/data/dn/postgresql.conf` 文件
 host    all             all             0.0.0.0/0               sha256
 ```
 
-如果想用 pgsql 的客户端访问 OpenGauss，需要将上面的 sha256 改为 md5。
+如果想用 pgsql 的客户端访问 OpenGauss，需要将上面的 sha256 改为 md5。并且修改 postgresql.conf 文件，将 password_encryption_type 设置为 0，重启 OpenGauss(gs_ctl restart -D /opt/opengauss/install/data/dn)
+
+如果想通过之前创建好的用户经由 pg 协议访问 OpenGauss，需要重置用户的密码，或者删除重建该用户.
+
+```
+# 重置用户密码
+ALTER USER USER_NAME PASSWORD 'YOUR_NEW_PASS'
+```
+
 
 
