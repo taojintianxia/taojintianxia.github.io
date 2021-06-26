@@ -141,5 +141,6 @@ pg 的相关配置都在 `/opt/opengauss/install/data/dn/postgresql.conf` 文件
 host    all             all             0.0.0.0/0               sha256
 ```
 
+如果想用 pgsql 的客户端访问 OpenGauss，需要将上面的 sha256 改为 md5。
 
 
