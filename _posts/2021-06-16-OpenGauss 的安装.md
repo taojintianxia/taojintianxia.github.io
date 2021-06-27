@@ -23,6 +23,7 @@ tar -zxvf openGauss-2.0.1-CentOS-64bit-om.tar.gz
 tar -jxvf openGauss-2.0.1-CentOS-64bit.tar.bz2
 chmod 755 /var/tmp/opengauss
 ```
+
 安装 OpenGauss 依赖的一些组件：
 
 ```
