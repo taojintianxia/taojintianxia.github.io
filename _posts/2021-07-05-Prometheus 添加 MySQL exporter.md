@@ -21,9 +21,9 @@ MySQL exporter 为 Prometheus 官方提供的用于 MySQL 数据库的 exporter�
 ```
 wget https://github.com/prometheus/mysqld_exporter/releases/download/v0.13.0/mysqld_exporter-0.13.0.linux-amd64.tar.gz
 tar -zxvf mysqld_exporter-0.13.0.linux-amd64.tar.gz
-mkdir -p /opt/sphereEx/prometheus_exporter
-mv mysqld_exporter-0.13.0.linux-amd64/mysqld_exporter /opt/sphereEx/prometheus_exporter/
-chmod +x /opt/sphereEx/prometheus_exporter/mysqld_exporter
+mkdir -p /opt/sphere-ex/prometheus_exporter
+mv mysqld_exporter-0.13.0.linux-amd64/mysqld_exporter /opt/sphere-ex/prometheus_exporter/
+chmod +x /opt/sphere-ex/prometheus_exporter/mysqld_exporter
 ```
 
 创建访问数据的用户（可选）：
