@@ -29,7 +29,7 @@ chmod +x /opt/sphereEx/prometheus_exporter/mysqld_exporter
 创建访问数据的用户（可选）：
 
 这并不是必须的操作，如果我们不愿意用 root 用户，可以创建一个导出数据的用户 mysql_exporter。
-这里设置 `MAX_USER_CONNECTIONS ` 为 2 的目的是防止该用户有过多请求影响 MySQL 的正常使用
+这里设置 `MAX_USER_CONNECTIONS` 为 2 的目的是防止该用户有过多请求影响 MySQL 的正常使用
 
 ```
 CREATE USER 'mysqld_exporter'@'localhost' IDENTIFIED BY 'Abcd@1234' WITH MAX_USER_CONNECTIONS 2;
