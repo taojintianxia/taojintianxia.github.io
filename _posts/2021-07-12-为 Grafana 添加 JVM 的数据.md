@@ -45,7 +45,7 @@ java -javaagent:/opt/sphere-ex/prometheus_exporter/jmx_prometheus_javaagent-0.16
 curl 127.0.0.1:8080/metric
 ```
 
-接下来配置一下 prometheus。
+接下来配置一下 Prometheus。
 
 在 Prometheus 的配置文件中，添加如下配置：
 
@@ -58,5 +58,5 @@ scrape_configs:
 
 重新 Prometheus 后即可生效。
 
-在 grafana 的 [dashboard](https://grafana.com/grafana/dashboards) 上搜索相关模板，安装后即可显示
+在 Grafana 的 [dashboard](https://grafana.com/grafana/dashboards) 上搜索相关模板，安装后即可显示
 
