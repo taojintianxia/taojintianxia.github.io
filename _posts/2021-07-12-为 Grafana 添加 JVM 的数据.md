@@ -32,7 +32,7 @@ lowercaseOutputName: true
 lowercaseOutputLabelNames: true
 ```
 
-在要启动的 jar 上配置 javaagent，例如 ss proxy 中，在 start.sh 中添加：
+在要启动的 jar 上的参数中配置 javaagent，例如 ss proxy 中，在 start.sh 中添加：
 
 ```
 # /opt/sphere-ex/prometheus_exporter/ 为存放 agent 的路径
