@@ -125,4 +125,4 @@ keywords: maven, shade, spi
     </build>
 ```
 
-transformer 标签对应的接口都是不要 `无脑` 覆盖的。
+transformer 标签对应的接口都是不要 无脑 覆盖的。
