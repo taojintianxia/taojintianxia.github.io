@@ -1,82 +1,171 @@
-### 本Blog的模板fork自[码志](https://mzlogin.github.io) https://github.com/mzlogin/mzlogin.github.io
+<h1 align="center">Claudia</h1>
+<p align="center"> 
+  Concisely designed & easy to config, match device dark mode, 90+ Lighthouse scoring
+</p>
 
---
+<p align="center">
+  <img  alt="Hexo version" src="https://img.shields.io/badge/hexo%20version-%3E%3D%204.2-brightgreen">
+  <img  alt="GitHub issues" src="https://img.shields.io/github/issues/Haojen/hexo-theme-Claudia">
+  <img  alt="GitHub license" src="https://img.shields.io/github/license/Haojen/hexo-theme-Claudia">
+</p>
 
-## 概览
+<p align="center">
+  <a href="https://haojen.github.io/Claudia-theme-blog/" rel="nofollow">Demo</a>
+</p>
 
-<!-- vim-markdown-toc GFM -->
+<p align="center">
+  <span>English | </span> 
+  <a href="README-CN.md" rel="nofollow">简体中文</a>
+</p>
 
-* [效果预览](#效果预览)
-* [Fork 指南](#fork-指南)
-* [贴心提示](#贴心提示)
-* [经验与思考](#经验与思考)
-* [致谢](#致谢)
+![cover](./screenshot/claudia-cover-v2.png)
 
-<!-- vim-markdown-toc -->
+## Changelog
+[Recent update 11.06.2022](CHANGELOG.md)
 
-## 效果预览
+## How to Use
 
-**[在线预览 &rarr;](https://mazhuang.org)**
+### Install depend
 
-![screenshot home](https://mazhuang.org/assets/images/screenshots/home.png)
+Install to Hexo blog root directory, **Not theme directory**
+```bash
+npm install hexo-renderer-pug 
+npm install hexo-renderer-dartsass
+npm install hexo-generator-search
 
-## Fork 指南
+# if you need RSS, you must be install this plugin
+npm install hexo-generator-feed
 
-Fork 本项目之后，还需要做一些事情才能让你的页面「正确」跑起来。
+# Flowchat
+npm install hexo-filter-flowchart        
+# Math
+npm install hexo-renderer-mathjax
+```
 
-1. 正确设置项目名称与分支。
+### User's profile
 
-   按照 GitHub Pages 的规定，名称为 `username.github.io` 的项目的 master 分支，或者其它名称的项目的 gh-pages 分支可以自动生成 GitHub Pages 页面。
+Configure the file `hexo-theme-claudia/_config.yml` under the theme profile
 
-2. 修改域名。
+```yaml
+user:
+  name: 
+  avatar: /images/avatar.jpg
+  location:
+  description:
+  footnotes:
 
-   如果你需要绑定自己的域名，那么修改 CNAME 文件的内容；如果不需要绑定自己的域名，那么删掉 CNAME 文件。
+# config you SNS
+social:
+  zhihu:
+  twitter:
+  facebook:
+  linkedin:
+  instagram:
+  github: haojen
 
-3. 修改配置。
+# Page icon
+favicon: images/favicon.ico
 
-   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 url、title、subtitle 和第三方评论模块的配置等。
+friend_links:
+  - title: Link1
+    link: https://www.link1.test.com/
 
-   **评论模块：** 目前支持 disqus、gitment 和 gitalk，选用其中一种就可以了，推荐使用 gitalk。它们各自的配置指南链接在 \_config.yml 文件的 Comments 一节里都贴出来了。
+```
 
-   **注意：** 如果使用 disqus，因为 disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus.username 修改成你自己的，否则请将该字段留空。我对该缺陷的记录见 [Issues#2][3]。
+### Upper-right navigation bar menu config
 
-4. 删除我的文章与图片。
+```yaml
+ # main menu navigation
+ menu:
+   Home: /
+   About: /about
+   Archives: /archives
+```
 
-   如下文件夹中除了 template.md 文件外，都可以全部删除，然后添加你自己的内容。
+### Sidebar widget config
+```yaml
+widgets:
+  - tag
+  - archive
+  - category
+  - recent_posts
+```
 
-   * \_posts 文件夹中是我已发布的博客文章。
-   * \_drafts 文件夹中是我尚未发布的博客文章。
-   * \_wiki 文件夹中是我已发布的 wiki 页面。
-   * images 文件夹中是我的文章和页面里使用的图片。
+### Comments
 
-5. 修改「关于」页面。
+#### 1. Utteranc
+Documents: https://utteranc.es/
 
-   pages/about.md 文件内容对应网站的「关于」页面，里面的内容多为个人相关，将它们替换成你自己的信息，包括 \_data 目录下的 skills.yml 和 social.yml 文件里的数据。
+Project repo: https://github.com/utterance/utterances
 
-## 贴心提示
+```yaml
+comment_utteranc:
+  enable: true
+  repo: Haojen/myBlogRepo # Change to your blog repo
+```
 
-1. 排版建议遵照一定的规范，推荐 [中文文案排版指北（简体中文版）][1]。
+#### 2. Valine
+Documents： https://valine.js.org/quickstart.html
 
-2. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
+```yaml
+comment_valine:
+  enable: true
+  appId:
+  appKey:
+```
 
-## 经验与思考
+### Appearance
+```yaml
+# 1.light 
+# 2.dark
+# 3.auto (default, match device appearance setting)
+appearance: auto
+```
 
-* 简约，尽量每个页面都不展示多余的内容。
+### Code highlighting
 
-* 有时一图抵千言，有时可能只会拖慢网页加载速度。
+1. **Disable** the default hexo highlight configuration(modify your `_config.yml` in root directory of hexo), and then run `hexo clean` to delete cache
 
-* 言之有物，不做无痛之呻吟。
+```yaml
+highlight:
+  enable: false
+```
 
-* 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
+## Analytics
+Google Analytics and Baidu Analytics simple config:
+```yaml
+#Baidu Analytics**
+ba_track_id: 
 
-* 杜绝难断句、难理解的长句子，如果不能将其拆分成几个简洁的短句，说明脑中的理解并不清晰。
+#Google Analytics
+ga_track_id: 
+ga_domain:
+```
 
-* 可以学习一下那些高质量的博主，他们的行文，内容组织方式，有什么值得借鉴的地方。
+### Create About Page
 
-## 致谢
+Create a new folder `about` under the source of hexo, and then, create a `index.md` file and copy the following content into it.
+also you `about.png` put in `about/` folder
 
-本博客外观基于 [DONGChuan](https://dongchuan.github.io) 修改，fork自[mazhuang](https://mazhuang.org/) 感谢！
+```yaml
+---
+title: about
+date: 2017-05-31 10:05:56
+layout: about
+---
+```
 
-[1]: https://github.com/mzlogin/chinese-copywriting-guidelines
-[2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
-[3]: https://github.com/mzlogin/mzlogin.github.io/issues/2
+### My demo blog config
+https://github.com/Haojen/Claudia-theme-blog
+
+## Other My Project
+- [Hexo-theme-Anisina](https://github.com/Haojen/hexo-theme-Anisina)
+- [Vimkey - a browser extension, let you use keyboard control browser](https://github.com/Haojen/vimkey)
+- [PlanetTab - a cool dynamic 3D planet browser new tab](https://github.com/Haojen/planet-tab)
+
+
+## Buy me coffee ☕️
+<img src="./screenshot/BuyMeCoffeeQRCode.png" width="300">
+
+## License
+MIT © [HAOZHEN MA](http://haojen.github.io)
