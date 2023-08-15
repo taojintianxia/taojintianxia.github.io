@@ -1,0 +1,65 @@
+toc:
+
+  - title: 博客导航站点
+    items:
+      - name: 十年之约
+        url: https://www.foreverblog.cn/
+        desc: 一个人的寂寞，一群人的狂欢
+      - name: 博客志
+        url: http://www.jetli.com.cn/
+        desc: 优秀个人独立博客导航
+      - name: 博客大全 by 大魏教练
+        url: https://link.wwwsheep.com/
+        desc: 大魏教练
+      - name: 中文独立博客列表
+        url: https://github.com/timqian/chinese-independent-blogs
+        desc: 互联网 博客
+
+  - title: 友情链接
+    items:
+      - name: scarsu
+        url: https://www.scarsu.com
+        desc: 自我管理 前端技术 认知输出
+
+  - title: 自用收集
+    items:
+      - name: Scrimba.com
+        url: https://scrimba.com/
+        desc: 互动式编程学习课程,前端
+      - name: 国家中小学网络云平台
+        url: https://ykt.eduyun.cn/
+        desc: 小学到高中的网络课程。 另有经典阅读，蒋英教育，生命安全教育资源，另有经典影视教育资源。
+      - name: 67工具网
+        url: https://www.67tool.com/
+        desc: 目前开发了视频工具、音频工具、图片工具、PDF 工具、办公辅助、设计工具、文本工具、数字工具、加密工具、单位转换等工具共计 200 多款，无需登录无任何限制。
+  - title: 音乐
+    items:
+      - name: Earth FM
+        url: https://earth.fm/
+        desc: 世界各地自然的声音
+      - name: Kaizen Flow
+        url: https://kaizenflow.co/
+        desc: 番茄时钟 + 音乐
+      - name: Music for Programming
+        url: https://musicforprogramming.net/latest/
+        desc: 界面如同IDE的音乐分享站，工作时听。
+      - name: 不是花火呀 playlist@Yoube
+        url: https://www.youtube.com/playlist?list=PLj-9Z_Q4SWVhKEHfrDsFWx7NhG3t4mJx7
+        desc: 歌手 不是花火呀 在Youtube上的音乐playlist。 Maintianed by Conge
+      - name: Savemp3
+        url: https://savemp3.net
+        desc: 将在线视频转存为Mp3。支持YouTube、Dailymotion、Soundcloud、Facebook、Instagram 等平台。
+  - title: 图片
+    items:
+      - name: compressImage
+        url: https://compressimage.io/
+        desc: 免费图片压缩工具，大幅减少 JPG、PNG文件大小。可调整画质和文件尺寸。可转webP格式。在线工具，本地操作，不上传文件到任何服务器。
+      - name: Imagator
+        url: https://imagator.co/compressor
+        desc: 免费图片压缩，编辑，尺寸调整，转换格式工具。在线工具，本地操作，不上传文件到任何服务器。
+      - name: Heritage Library 
+        url: https://www.heritagetype.com/pages/free-vintage-illustrations
+        desc: 免费图库，270套免费原创复古风格插画，提供PNG和Vector格式。私人和商业用途均可。
+      - name: Artvee
+        url: https://artvee.com/
+        desc: 免费图片库。整合世界各大美术博物馆藏品的图库。用户可免费下载进入公众领域授权的艺术画作的高清图片。
